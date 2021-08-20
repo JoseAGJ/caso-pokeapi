@@ -38,12 +38,12 @@
 	
 	  <div class="d-caracteristica">
 	   <h6 class="subTitle"> Grupo:</h6>
-		 <span class="badge bg-primary bdg-group"  th:each="osp: ${specieDetail.egg_groups}" th:text="${osp.name}" >	</span>
+		 <span class="badge bg-primary bdg-group"  th:each="osp: ${specieDetail.egg_groups}" th:text="${osp.name}" ></span>
 	  </div>		 
 	 
 	  <h6 class="subTitle">Descripcion:</h6>
 	  <p class="card-text t-description"  th:if="${specieDetail.flavor_text_entries.size >=50 }"  th:text="${specieDetail.flavor_text_entries[50].flavor_text}"></p>
-	  <p class="card-text t-description"  th:if="${specieDetail.flavor_text_entries.size <50 }"  th:text="${specieDetail.flavor_text_entries[20].flavor_text}"></p>
+	  <p class="card-text t-description"  th:unless="${specieDetail.flavor_text_entries.size >=50 }"  th:text="${specieDetail.flavor_text_entries[20].flavor_text}"></p>
 	  	  	  
 	  <h6 class="subTitle">Evoluciones</h6>	  
 	  

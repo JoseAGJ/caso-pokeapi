@@ -4,18 +4,16 @@
 }
 
 body{
-font-family: 'Roboto', sans-serif;
-
+	font-family: 'Roboto', sans-serif;
 }
 
 .c-todo{
-margin-top: 2rem;
-margin-bottom: 2rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
 
 h5{
-font-family: 'Roboto', sans-serif;
-font-weight: 700;
+	font-weight: 700;
 }
 
 .lista-g{
@@ -40,6 +38,7 @@ span{
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
+
 img{
 padding-top: 0.7rem;
 }
@@ -54,6 +53,4 @@ transform: rotate(180deg);
 	border-radius: 0.8rem;
 }
 
-p{
-font-family: 'Roboto', sans-serif;
-}
+

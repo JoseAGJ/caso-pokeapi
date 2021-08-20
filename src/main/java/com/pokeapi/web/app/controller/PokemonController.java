@@ -67,22 +67,18 @@ public class PokemonController {
 
 	@GetMapping(value = "/ver/{id}")
 	public String ver(@PathVariable(value = "id") Long id,Model model) {
+		
 				
-		PokemonSpecies ops= service.getSpecies(String.valueOf(id));
-		DetailPokemon dtP=service.getDetailPokemon(String.valueOf(id));			
-		PokemonEvolution pokeEv=service.getEvolution(ops.getEvolution_chain().getUrl());
+		PokemonSpecies pokeSoecies= service.getSpecies(String.valueOf(id));
+		DetailPokemon detailPokemon=service.getDetailPokemon(String.valueOf(id));			
+		PokemonEvolution pokeEv=service.getEvolution(pokeSoecies.getEvolution_chain().getUrl());
 
-		HashMap<String, String> hash_mapL=service.getEvolutionImage(pokeEv);	
+		HashMap<String, String> hash_mapL=service.getEvolutionImage(pokeEv);			
 		
-
-		
-	   Utilitario.AsignaColor(dtP);
+		Utilitario.AsignaColor(detailPokemon);
 	   
-	   
-	      
-	   
-		model.addAttribute("specieDetail",ops);
-		model.addAttribute("pokemonDtl",dtP);	
+		model.addAttribute("specieDetail",pokeSoecies);
+		model.addAttribute("pokemonDtl",detailPokemon);	
 		model.addAttribute("masLstf",hash_mapL);
 		
 		return "ver";

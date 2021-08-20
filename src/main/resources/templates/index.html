@@ -52,7 +52,7 @@
       <div class="lista-g">
        <div th:style="'background-color:'+ ${pok.color} +''"  class="card ancho-p"  th:each="pok: ${pokemon}" >
        		<img  th:if="${pok.sprites.other.dream_world.front_default != null}"  th:src=${pok.sprites.other.dream_world.front_default} width="200" height="200" />
-			<span th:if="${pok.sprites.other.dream_world.front_default == null}" >
+			<span th:unless="${pok.sprites.other.dream_world.front_default != null}" >
 				<img th:src=${pok.sprites.front_default} width="200" height="200" />
 			</span>
            <div class="card-body text-center">

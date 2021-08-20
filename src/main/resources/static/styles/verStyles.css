@@ -11,20 +11,19 @@ h6{
 }
 
 body{
-font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', sans-serif;
 
 }
 
 .opsf{
- margin: 0 auto;
- width: 30rem;
- border-radius: 0.8rem;
- margin-top: 2rem;
- align-items: center
+	margin: 0 auto;
+	width: 30rem;
+	border-radius: 0.8rem;
+	margin-top: 2rem;
+	align-items: center;
 }
 
 .t-left{
-
     display: inline-block;
 	text-align: left;
 	text-transform: capitalize;
@@ -61,10 +60,9 @@ font-family: 'Roboto', sans-serif;
 }
 
 img{
-padding-top: 0.7rem;
-margin-bottom: 0.8rem;
+	padding-top: 0.7rem;
+	margin-bottom: 0.8rem;
 }
-
 
 .d-caracteristica{
 	margin-bottom: 0.5rem;
