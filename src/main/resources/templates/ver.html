@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	<!-- CSS only -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,300;1,700&display=swap" rel="stylesheet">
+	<link th:href="@{/styles/verStyles.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+
+<div class="container">
+	<div   th:style="'background-color:'+ ${pokemonDtl.color} +''"  class="card opsf">
+	<img  th:if="${pokemonDtl.sprites.other.dream_world.front_default != null}"  th:src=${pokemonDtl.sprites.other.dream_world.front_default} width="300" height="300" />
+	<span th:if="${pokemonDtl.sprites.other.dream_world.front_default == null}" >
+		<img th:src=${pokemonDtl.sprites.front_default} width="300" height="300" />
+	</span>
+	
+	<div class="card-body" style="background-color: white;">
+	  <h2 class="card-title text-center t-left" th:text="${pokemonDtl.name}"></h2>
+	        
+	  <div class="d-caracteristica">
+	   <h6 class="subTitle">Tipo:</h6>
+	  <span th:text="${specieDetail.genera[5].genus}" ></span>
+	  </div>
+	  
+	  <div class="d-caracteristica">
+	   <h6 class="subTitle">Habitad:</h6>
+	   <span th:text="${specieDetail.habitat.name}" ></span>
+	  </div>
+	
+	  <div class="d-caracteristica">
+	   <h6 class="subTitle"> Grupo:</h6>
+		 <span class="badge bg-primary bdg-group"  th:each="osp: ${specieDetail.egg_groups}" th:text="${osp.name}" >	</span>
+	  </div>		 
+	 
+	  <h6 class="subTitle">Descripcion:</h6>
+	  <p class="card-text t-description" th:text="${specieDetail.flavor_text_entries[50].flavor_text}"></p>
+	  	  	  
+	  <h6 class="subTitle">Evoluciones</h6>	  
+	  
+	  <div class="c-evolution">
+	   <div th:each="key: ${masLstf}" class="cont-yp">
+		   <img class="icontent" th:src=${key.value} width="100" height="100" />	    
+		   <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-right i-cos" width="40" height="40" viewBox="0 0 24 24" stroke-width="3" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+			  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+			  <line x1="5" y1="12" x2="19" y2="12" />
+			  <line x1="13" y1="18" x2="19" y2="12" />
+			  <line x1="13" y1="6" x2="19" y2="12" />
+			</svg>	  
+	   </div>
+	  </div>
+	   
+	  <div>
+	  <a class="btn btn-primary" th:href="@{/index}" > > Regresar</a>
+	  </div>
+	  
+	</div>
+</div>
+
+</div>
+
+
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.pokeapi.web.app.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -7,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import com.pokeapi.web.app.models.Species.PokemonSpecies;
 import com.pokeapi.web.app.models.detailPokemon.DetailPokemon;
+import com.pokeapi.web.app.models.evolution.PokemonEvolution;
 import com.pokeapi.web.app.models.pokemon.Pokemon;
 import com.pokeapi.web.app.services.PokemonService;
 import com.pokeapi.web.app.utils.Utilitario;
@@ -34,8 +38,7 @@ public class PokemonController {
 		int totalPaginas = (int) Math.round(paginasSnRedondeo);
 		
 		Utilitario.AsignaColores(pokemonDT);
-       
-		
+       		
 		model.addAttribute("pokemon",pokemonDT);
 		model.addAttribute("totalPaginas",totalPaginas);
 		model.addAttribute("numero",numero);
@@ -61,4 +64,21 @@ public class PokemonController {
 		return "redirect:index";
 	}
 	
+
+	@GetMapping(value = "/ver/{id}")
+	public String ver(@PathVariable(value = "id") Long id,Model model) {
+				
+		PokemonSpecies ops= service.getSpecies(String.valueOf(id));
+		DetailPokemon dtP=service.getDetailPokemon(String.valueOf(id));			
+		PokemonEvolution pokeEv=service.getEvolution(ops.getEvolution_chain().getUrl());
+
+		HashMap<String, String> hash_mapL=service.getEvolutionImage(pokeEv);	    	 	
+	    Utilitario.AsignaColor(dtP);
+	     	        	   
+		model.addAttribute("specieDetail",ops);
+		model.addAttribute("pokemonDtl",dtP);	
+		model.addAttribute("masLstf",hash_mapL);
+		
+		return "ver";
+	}
 }

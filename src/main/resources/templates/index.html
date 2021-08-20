@@ -58,6 +58,7 @@
            	<span class="badge rounded-pill bg-primary" th:text=" '#' + ${pok.id}"></span>
             <h5 class="card-title text-center t-pk" th:text=${pok.name}></h5>
              <p class="card-text text-center "><b>Type: </b> <span th:text=${pok.types[0].type.name}></span>	</p>
+             <a href="#" class="btn btn-primary" th:href="@{/ver/} + ${pok.id}">Detalle</a>            
            </div>
          </div>           
       </div>        
