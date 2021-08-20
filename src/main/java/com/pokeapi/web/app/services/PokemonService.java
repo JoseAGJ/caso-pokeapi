@@ -53,23 +53,30 @@ public class PokemonService {
 	public  HashMap<String, String> getEvolutionImage (PokemonEvolution pokeEv) {
 		
 		HashMap<String, String> hash_mapL = new HashMap<String, String>();
-        for(int i=0;i<pokeEv.getChain().getEvolves_to().size();i++) {	        	
-        	String primero=pokeEv.getChain().getSpecies().getName();	        	
-        	DetailPokemon nuevoImgen=getDetailPokemon(primero);	        	
-        	hash_mapL.put("primero",nuevoImgen.getSprites().getOther().getDream_world().getFront_default());	     
-        	
-        	if(pokeEv.getChain().getEvolves_to().size()>0) {
-        		String segundo=pokeEv.getChain().getEvolves_to().get(i).getSpecies().getName();	  
-	        	nuevoImgen=getDetailPokemon(segundo);	        	
-        		hash_mapL.put("segundo",nuevoImgen.getSprites().getOther().getDream_world().getFront_default());
-        	}
-        		        	
-        	if(pokeEv.getChain().getEvolves_to().get(i).getEvolves_to().size()>0) {
-        		String tercero=pokeEv.getChain().getEvolves_to().get(i).getEvolves_to().get(i).getSpecies().getName();	  
-	        	nuevoImgen=getDetailPokemon(tercero);	  
-        		hash_mapL.put("tercero",nuevoImgen.getSprites().getOther().getDream_world().getFront_default());
-        	}
-        }
+		if(pokeEv.getChain().getEvolves_to().size()>0) {
+	        for(int i=0;i<pokeEv.getChain().getEvolves_to().size();i++) {	        	
+	        	String primero=pokeEv.getChain().getSpecies().getName();	        	
+	        	DetailPokemon nuevoImgen=getDetailPokemon(primero);	        	
+	        	hash_mapL.put("primero",nuevoImgen.getSprites().getOther().getDream_world().getFront_default());	     
+	        	
+	        	if(pokeEv.getChain().getEvolves_to().size()>0) {
+	        		String segundo=pokeEv.getChain().getEvolves_to().get(i).getSpecies().getName();	  
+		        	nuevoImgen=getDetailPokemon(segundo);	        	
+	        		hash_mapL.put("segundo",nuevoImgen.getSprites().getOther().getDream_world().getFront_default());
+	        	}
+	        		        	
+	        	if(pokeEv.getChain().getEvolves_to().get(i).getEvolves_to().size()>0) {
+	        		String tercero=pokeEv.getChain().getEvolves_to().get(i).getEvolves_to().get(i).getSpecies().getName();	  
+		        	nuevoImgen=getDetailPokemon(tercero);	  
+	        		hash_mapL.put("tercero",nuevoImgen.getSprites().getOther().getDream_world().getFront_default());
+	        	}
+	        }
+		}else {
+			String primero=pokeEv.getChain().getSpecies().getName();	        	
+        	DetailPokemon nuevoImgen=getDetailPokemon(primero);	
+        	hash_mapL.put("primero",nuevoImgen.getSprites().getOther().getDream_world().getFront_default());	
+		}
+
         return  hash_mapL;
 	   
 	}

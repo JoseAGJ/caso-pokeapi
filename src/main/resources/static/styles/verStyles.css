@@ -60,6 +60,11 @@ font-family: 'Roboto', sans-serif;
 	font-size: 1.2rem;
 }
 
+img{
+padding-top: 0.7rem;
+margin-bottom: 0.8rem;
+}
+
 
 .d-caracteristica{
 	margin-bottom: 0.5rem;

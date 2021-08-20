@@ -72,9 +72,15 @@ public class PokemonController {
 		DetailPokemon dtP=service.getDetailPokemon(String.valueOf(id));			
 		PokemonEvolution pokeEv=service.getEvolution(ops.getEvolution_chain().getUrl());
 
-		HashMap<String, String> hash_mapL=service.getEvolutionImage(pokeEv);	    	 	
-	    Utilitario.AsignaColor(dtP);
-	     	        	   
+		HashMap<String, String> hash_mapL=service.getEvolutionImage(pokeEv);	
+		
+
+		
+	   Utilitario.AsignaColor(dtP);
+	   
+	   
+	      
+	   
 		model.addAttribute("specieDetail",ops);
 		model.addAttribute("pokemonDtl",dtP);	
 		model.addAttribute("masLstf",hash_mapL);

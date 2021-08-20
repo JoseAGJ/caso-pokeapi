@@ -17,9 +17,10 @@
 </head>
 <body>
     
+
     <div class="container c-todo">  
        <div class="paginaciondf">
-        <a th:href="@{/atras}">
+        <a th:href="@{/atras}"  th:classappend="${numero==0} ?  disabled : habilitado"  class="btn">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="44" height="44"
             viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
            <path style="fill:#FFFFFF;" d="M256,504C119.248,504,8,392.752,8,256S119.248,8,256,8s248,111.248,248,248S392.752,504,256,504z"/>
