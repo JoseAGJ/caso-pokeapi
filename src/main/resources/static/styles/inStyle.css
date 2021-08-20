@@ -1,0 +1,55 @@
+
+body{
+font-family: 'Roboto', sans-serif;
+
+}
+
+.c-todo{
+margin-top: 2rem;
+margin-bottom: 2rem;
+}
+
+h5{
+font-family: 'Roboto', sans-serif;
+font-weight: 700;
+}
+
+.lista-g{
+    display: flex;
+    flex-wrap:wrap;
+    gap: 2rem;
+    align-items: center;
+}
+
+.t-pk{
+    text-transform: capitalize;
+}
+
+.paginaciondf{
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+span{
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+img{
+padding-top: 0.7rem;
+}
+
+.rot{
+transform: rotate(180deg);
+}
+
+.ancho-p{
+	width: 18rem;
+	align-items: center;
+	border-radius: 0.8rem;
+}
+
+p{
+font-family: 'Roboto', sans-serif;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;1,300;1,700&display=swap" rel="stylesheet">
+<link th:href="@{/styles/inStyle.css}" rel="stylesheet" />
+
+
+</head>
+
+</head>
+<body>
+    
+    <div class="container c-todo">  
+       <div class="paginaciondf">
+        <a th:href="@{/atras}">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="44" height="44"
+            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+           <path style="fill:#FFFFFF;" d="M256,504C119.248,504,8,392.752,8,256S119.248,8,256,8s248,111.248,248,248S392.752,504,256,504z"/>
+           <path style="fill:#8AD5DD;" d="M256,16c132.336,0,240,107.664,240,240S388.336,496,256,496S16,388.336,16,256S123.664,16,256,16
+                M256,0C114.608,0,0,114.608,0,256c0,141.376,114.608,256,256,256s256-114.624,256-256C512,114.608,397.392,0,256,0L256,0z"/>
+           <polygon style="fill:#2D2D2D;" points="297.344,416.064 133.984,256 297.344,95.936 346.144,145.904 233.792,256 346.144,366.096 
+               "/>
+            </svg>
+        </a>
+	
+        <span th:text="${numero+1}"></span>
+        <span> De </span>
+        <span th:text="${totalPaginas}"></span>
+
+		<a th:href="@{/siguiente}"> 
+			<svg class="rot" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="44" height="44"
+	            viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+	           <path style="fill:#FFFFFF;" d="M256,504C119.248,504,8,392.752,8,256S119.248,8,256,8s248,111.248,248,248S392.752,504,256,504z"/>
+	           <path style="fill:#8AD5DD;" d="M256,16c132.336,0,240,107.664,240,240S388.336,496,256,496S16,388.336,16,256S123.664,16,256,16
+	                M256,0C114.608,0,0,114.608,0,256c0,141.376,114.608,256,256,256s256-114.624,256-256C512,114.608,397.392,0,256,0L256,0z"/>
+	           <polygon style="fill:#2D2D2D;" points="297.344,416.064 133.984,256 297.344,95.936 346.144,145.904 233.792,256 346.144,366.096 
+	               "/>
+	       </svg>
+       	</a>
+       </div>
+
+
+
+      <div class="lista-g">
+       <div th:style="'background-color:'+ ${pok.color} +''"  class="card ancho-p"  th:each="pok: ${pokemon}" >
+       		<img  th:if="${pok.sprites.other.dream_world.front_default != null}"  th:src=${pok.sprites.other.dream_world.front_default} width="200" height="200" />
+			<span th:if="${pok.sprites.other.dream_world.front_default == null}" >
+				<img th:src=${pok.sprites.front_default} width="200" height="200" />
+			</span>
+           <div class="card-body text-center">
+           	<span class="badge rounded-pill bg-primary" th:text=" '#' + ${pok.id}"></span>
+            <h5 class="card-title text-center t-pk" th:text=${pok.name}></h5>
+             <p class="card-text text-center "><b>Type: </b> <span th:text=${pok.types[0].type.name}></span>	</p>
+           </div>
+         </div>           
+      </div>        
+    </div>
+    
+    
+</body>
+</html>
